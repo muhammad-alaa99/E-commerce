@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  background-color:#c7cecf8a !important;
+  
+}
+*{
+  text-transform: capitalize;
+  /* overflow: hidden; */
+}
+

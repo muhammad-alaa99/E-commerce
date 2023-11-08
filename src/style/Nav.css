@@ -1,0 +1,29 @@
+.nav{
+  background-color:#797676 ;
+  color: #fff;
+  z-index: 100;
+  width: 100vw;
+  
+}
+.icon{
+  font-size: 3em;
+  color: #fff;
+}
+.cart{
+  width: 50px;
+  /* margin: auto; */
+}
+.counter{
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 50%;
+  background-color: #ee6161;
+  display: inline-block;
+  top: -3px;
+  right: -4px;
+  color: #000;
+}

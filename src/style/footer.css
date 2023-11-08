@@ -1,0 +1,6 @@
+
+.fo-icon{transition: all 0.3s;}
+.fo-icon:hover {
+    transform: scale(1.2);
+    opacity: 1 !important;
+}
