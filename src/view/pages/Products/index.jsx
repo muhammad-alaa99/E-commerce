@@ -40,7 +40,7 @@ const Index = () => {
     );
   };
   return (
-    <div className="positon-relative">
+    <div className="position-relative">
       <Container>
         <h1 className="my-5 fw-bolder text-center">All Products</h1>
         <div className="text-center ">
@@ -135,94 +135,79 @@ const Index = () => {
         ""
       ) : (
         <div
-          className=""
-          style={{
-            backgroundColor: "hsla(0, 0%, 0%, 0.6)",
-            padding: "2px 10px",
-            color: "white",
-            borderRadius: 3,
-            width: "100vw",
-            height: "100vh",
-            position: "absolute",
-            position: "fixed",
-            top: "0",
-            zIndex: "10",
-            marginTop: "70px",
-            overflow: "auto",
-          }}
+        className=""
+        style={{
+          backgroundColor: "hsla(0, 0%, 0%, 0.6)",
+          padding: "2px 10px",
+          borderRadius: 3,
+          width: "100%",
+          height: "100%",
+          position: "fixed",
+          top: "0",
+          zIndex: "10",
+          overflow: "auto",
+        }}
+      >
+{record.map((item, index) => (
+        <div key={index}
+          className=" h-100 d-flex justify-content-center align-items-center "
         >
-          {/* <button
-            className="btn position-absolute text-dark  fs-2 fw-bold"
-            onClick={() => {
-              dispatch(clearRecord());
-            }}
-            style={{ right: "60px" }}
-          >
-            X
-          </button> */}
-          <div
-            className="w-100 h-100 d-flex justify-content-center align-items-center "
-            style={{ maxHeight: "90vh", overflow: "auto" }}
-          >
-
-
-            <div class="card mb-3 pt-5 w-75">
+          <div className="card mb-3 pt-5 h-75 my-5 w-100"> {/* Adjust width */}
             <button
-            className="btn position-absolute text-dark  fs-2 fw-bold"
-            onClick={() => {
-              dispatch(clearRecord());
-            }}
-            style={{ right: "20px",top:"0px" }}
-          >
-            X
-          </button>
-              {record.map((item) => (
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img
-                      src={item.image}
-                      class="img-fluid rounded-start "
-                      alt="image"
-                    />
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title fs-2 fw-bold">{item.title}</h5>
-                      <p class="card-text lh-lg ms-5">{item.description}</p>
-                      <div className="d-flex">
-                        <p class="card-text ms-5 fs-4 fw-bold">{item.price}$</p>
-                        <p class="card-text ms-5 fs-4 fw-bolder">
-                          Rate ::{" "}
-                          <span className="fst-italic fs-5">
-                            {item.rating.rate}
-                            <i
-                              class=" text-warning fa fa-star"
-                              aria-hidden="true"
-                            ></i>
-                          </span>
-                        </p>
-                      </div>
+              className="btn position-absolute text-dark fs-2 fw-bold"
+              onClick={() => {
+                dispatch(clearRecord());
+              }}
+              style={{ right: "20px", top: "0px" }}
+            >
+              X
+            </button>
+            
+              <div  className="row g-0 overflow-auto">
+                <div className="col-md-4">
+                  <img
+                    src={item.image}
+                    className="img-fluid rounded-start"
+                    alt="image"
+                    style={{ maxWidth: "100%", maxHeight: "60vh" }} // Make the image responsive
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title fs-2 fw-bold">{item.title}</h5>
+                    <p class="card-text lh-lg ms-5">{item.description}</p>
+                    <div className="d-flex">
+                      <p class="card-text ms-5 fs-4 fw-bold">{item.price}$</p>
                       <p class="card-text ms-5 fs-4 fw-bolder">
-                        Quantity available ::{" "}
+                        Rate ::{" "}
                         <span className="fst-italic fs-5">
-                          {item.rating.count}
+                          {item.rating.rate}
+                          <i className=" text-warning fa fa-star" aria-hidden="true"></i>
                         </span>
                       </p>
-                      <button
-                        className="card-link btn btn-outline-dark  ms-5"
-                        onClick={() => {
-                          dispatch(getProduct(item.id));
-                        }}
-                      >
-                        Add to cart
-                      </button>
                     </div>
+                    <p className="card-text ms-5 fs-4 fw-bolder">
+                      Quantity available ::{" "}
+                      <span className="fst-italic fs-5">
+                        {item.rating.count}
+                      </span>
+                    </p>
+                    <button
+                      className="card-link btn btn-outline-dark  ms-5"
+                      onClick={() => {
+                        dispatch(getProduct(item.id));
+                      }}
+                    >
+                      Add to cart
+                    </button>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+          
           </div>
         </div>
+          ))}
+      </div>
       )}
     </div>
   );
